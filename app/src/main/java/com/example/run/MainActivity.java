@@ -1,19 +1,22 @@
 package com.example.run;
 
-import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
-import android.view.MenuItem;
 
-import com.example.run.databinding.ActivityMainBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.navigation.NavigationBarView;
 
 public class MainActivity extends AppCompatActivity {
 
     private BottomNavigationView mBottomNavigationView;
-
+    private FragmentManager mFragmentManager;
+    private FragmentTransaction mFragmentTransaction;
+    private PaceFragment mPaceFragment;
+    private MetronomeFragment mMetronomeFragment;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,14 +25,30 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void init() {
+        mPaceFragment = new PaceFragment();
+        mMetronomeFragment = new MetronomeFragment();
+
+        mFragmentManager = getSupportFragmentManager();
+        mFragmentTransaction = mFragmentManager.beginTransaction();
+
         mBottomNavigationView = findViewById(R.id.navigationView);
         mBottomNavigationView.setOnItemSelectedListener(item -> {
-            if(item.getItemId() == R.id.fragment_home) {
-
-            } else if (item.getItemId() == R.id.fragment_search) {
-
+            Fragment targetFragment = null;
+            if (item.getItemId() == R.id.item_pace) {
+                targetFragment = mPaceFragment;
+            } else if (item.getItemId() == R.id.item_metronome) {
+                targetFragment = mMetronomeFragment;
             }
+            setFragment(targetFragment);
             return true;
         });
+    }
+
+    private void setFragment(@Nullable Fragment fragment) {
+        if (fragment == null) {
+            return;
+        }
+        mFragmentTransaction.replace(R.id.main_fragment, fragment);
+        mFragmentTransaction.commit();
     }
 }

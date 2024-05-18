@@ -10,10 +10,10 @@ import android.view.ViewGroup;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link metronomeFragment#newInstance} factory method to
+ * Use the {@link PaceFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class metronomeFragment extends Fragment {
+public class PaceFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -24,7 +24,7 @@ public class metronomeFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public metronomeFragment() {
+    public PaceFragment() {
         // Required empty public constructor
     }
 
@@ -34,11 +34,11 @@ public class metronomeFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment metronome.
+     * @return A new instance of fragment BlankFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static metronomeFragment newInstance(String param1, String param2) {
-        metronomeFragment fragment = new metronomeFragment();
+    public static PaceFragment newInstance(String param1, String param2) {
+        PaceFragment fragment = new PaceFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -59,6 +59,6 @@ public class metronomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_metronome, container, false);
+        return inflater.inflate(R.layout.fragment_pace, container, false);
     }
 }
