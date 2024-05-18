@@ -27,10 +27,7 @@ public class MainActivity extends AppCompatActivity {
     private void init() {
         mPaceFragment = new PaceFragment();
         mMetronomeFragment = new MetronomeFragment();
-
         mFragmentManager = getSupportFragmentManager();
-        mFragmentTransaction = mFragmentManager.beginTransaction();
-
         mBottomNavigationView = findViewById(R.id.navigationView);
         mBottomNavigationView.setOnItemSelectedListener(item -> {
             Fragment targetFragment = null;
@@ -48,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
         if (fragment == null) {
             return;
         }
+        mFragmentTransaction = mFragmentManager.beginTransaction();
         mFragmentTransaction.replace(R.id.main_fragment, fragment);
         mFragmentTransaction.commit();
     }

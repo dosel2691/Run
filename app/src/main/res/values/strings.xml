@@ -4,4 +4,6 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="hello_pace_fragment">Hello pace fragment</string>
     <string name="hello_metronome_fragment">Hello metronome fragment</string>
+    <string name="pace_to_speed">Pace to Speed</string>
+    <string name="type_pace">페이스를 입력하세요. (ex 630)</string>
 </resources>

@@ -1,14 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".PaceFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_pace_fragment" />
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/fixText_Pace_to_Speed"
+            android:layout_width="200dp"
+            android:layout_height="49dp"
+            android:gravity="center"
+            android:text="@string/pace_to_speed"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <FrameLayout
+            android:layout_width="256dp"
+            android:layout_height="254dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fixText_Pace_to_Speed">
+
+            <EditText
+                android:id="@+id/editText_insert_pace"
+                android:layout_width="147dp"
+                android:layout_height="68dp"
+                android:ems="10"
+                android:gravity="center"
+                android:hint="@string/type_pace"
+                android:inputType="number"
+                android:textAlignment="center" />
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Button" />
+
+        </FrameLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>
